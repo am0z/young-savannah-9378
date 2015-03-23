@@ -1,1 +1,1 @@
-web: gunicorn young.wsgi:application --log-file -
+web: gunicorn young.wsgi --log-file -
