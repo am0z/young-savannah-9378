@@ -1,6 +1,7 @@
-Django
+Django<1.9
 dj-database-url
-dj-static
 gunicorn
 psycopg2
 django-crispy-forms
+whitenoise
+brotlipy
