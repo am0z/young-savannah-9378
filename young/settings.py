@@ -23,6 +23,7 @@ INSTALLED_APPS = (
     'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
     'crispy_forms',
+    'opbeat.contrib.django',
     'young',
     'youngsters',
     'contact',
@@ -40,6 +41,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 )
 
 MIDDLEWARE_CLASSES = (
+    'opbeat.contrib.django.middleware.OpbeatAPMMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -56,6 +58,12 @@ ROLLBAR = {
     'environment': 'development' if DEBUG else 'production',
     'branch': 'master',
     'root': BASE_DIR,
+}
+
+OPBEAT = {
+    'ORGANIZATION_ID': '125f2995a2cc45639619abaa6db2d7d8',
+    'APP_ID': '92e7437bc4',
+    'SECRET_TOKEN': '25d697ad26cc3c73d02d4b1b6a37800cdd083b86',
 }
 
 ROOT_URLCONF = 'young.urls'

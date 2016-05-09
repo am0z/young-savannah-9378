@@ -5,3 +5,4 @@ psycopg2
 django-crispy-forms
 whitenoise
 rollbar
+opbeat
