@@ -1,8 +1,10 @@
 Django<1.9
-dj-database-url
+django-environ
 gunicorn
 psycopg2
 django-crispy-forms
+cffi
+brotlipy
 whitenoise
 rollbar
 opbeat

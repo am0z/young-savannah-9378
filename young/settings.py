@@ -1,16 +1,29 @@
 import os
+import environ
 
-DEBUG = os.environ.get('DEBUG', False)
+root = environ.Path(__file__) - 2
+env = environ.Env(DEBUG=(bool, False),)
 
-import dj_database_url
+try:
+    environ.Env.read_env(root.file('.env'))
+except IOError:
+    pass
+
+DEBUG = env('DEBUG')
+
 DATABASES = {
-    'default':  dj_database_url.config()
+    'default': env.db()
 }
+
+CACHES = {
+    'default': env.cache(),
+}
+
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 ALLOWED_HOSTS = ['*']
 
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+STATIC_ROOT = root.path('staticfiles')()
 
 SECRET_KEY = 'mvy!eh^nl!19#)!7lt#&cn&%b^8w2^ml8r#_)2#!r+4j)@*px#'
 
@@ -57,7 +70,7 @@ ROLLBAR = {
     'access_token': os.environ.get('ROLLBAR_ACCESS_TOKEN'),
     'environment': 'development' if DEBUG else 'production',
     'branch': 'master',
-    'root': BASE_DIR,
+    'root': root(),
 }
 
 OPBEAT = {
