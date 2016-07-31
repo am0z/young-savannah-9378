@@ -1,0 +1,13 @@
+image: python:2.7
+
+all_tests:
+  script:
+   - pip install -r requirements.txt
+   - python manage.py collectstatic --noinput
+   - python manage.py test
+  variables:
+    DATABASE_URL: "postgres://postgres@postgres/my_database"
+    CACHE_URL: "dummycache://"
+  when: on_success
+  only:
+    - dev

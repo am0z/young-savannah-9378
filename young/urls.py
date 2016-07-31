@@ -9,4 +9,5 @@ urlpatterns = patterns('',
         TemplateView.as_view(template_name='base.html')), name='home'),
     url(r'^', include('youngsters.urls', namespace='youngsters')),
     url(r'^', include('contact.urls', namespace='contact')),
+    url(r'^panavatar/', include("panavatar.urls")),
 )

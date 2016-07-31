@@ -1,4 +1,5 @@
 {% load static from staticfiles %}
+{% load humanize %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -7,25 +8,51 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>world!</title>
-    <link rel="stylesheet" href="https://bootswatch.com/superhero/bootstrap.min.css">
+    <link rel="stylesheet" href="//bootswatch.com/superhero/bootstrap.min.css">
     <style>
         body { padding-bottom: 70px; }
+        img { image-rendering: optimizespeed; }
+        .microlight {
+            font-family : monospace;
+            white-space : pre;
+        }
     </style>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
   </head>
   <body>
 
     <div class="container">
         <div class="page-header row">
-        <div class="col-xs-6 col-md-3">
-            <a class="thumbnail">
-                <img src="{% static "img/small-fundraising-heart.png" %}">
-                <div class="caption">
-                    <h1 class="media-heading">world!</h1>
-                    <p class="lead">hello {{ request.user.email }}</p>
+            <div class="col-xs-6 col-md-3">
+                <div class="thumbnail">
+                    <img width="100%" src="{% static "img/small-fundraising-heart.png" %}">
+                    <div class="caption">
+                        <h1 class="media-heading">world!</h1>
+                        <p class="lead">hello {{ user.email }}</p>
+                    </div>
                 </div>
-            </a>
-        </div>
+            </div>
+            {% if user.is_authenticated %}
+                <div class="col-xs-6 col-md-3">
+                    <div class="thumbnail">
+                        <img width=300 src="{% url 'bg' width=300 height=300 seed=user|humanize %}">
+                        <div class="caption">
+                            <h3 class="media-heading">{{ user|humanize }}</h3>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+            <div class="col-xs-12 col-md-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">microlight.js</div>
+                    <div class="panel-body microlight">
+                        for (var i = 0; i&lt;=10; i++) {
+                            // say hello
+                            echo("hello");
+                        }
+                    </div>
+                </div>
+            </div>
         </div>
         {% block content %}
             <a href="{% url 'youngsters:login' %}" class="btn btn-default">Login</a>
@@ -33,6 +60,7 @@
         {% endblock %}
     </div>
 
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script src="//raw.githubusercontent.com/asvd/microlight/master/microlight.js"></script>
   </body>
 </html>
