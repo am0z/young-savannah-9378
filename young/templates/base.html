@@ -32,16 +32,18 @@
                     </div>
                 </div>
             </div>
-            {% if user.is_authenticated %}
-                <div class="col-xs-6 col-md-3">
-                    <div class="thumbnail">
+            <div class="col-xs-6 col-md-3">
+                <div class="thumbnail">
+                    {% if not user.is_authenticated %}
+                        <img width=300 src="{% url 'bg' width=300 height=300 seed='young' %}">
+                    {% else %}
                         <img width=300 src="{% url 'bg' width=300 height=300 seed=user|humanize %}">
                         <div class="caption">
                             <h3 class="media-heading">{{ user|humanize }}</h3>
                         </div>
-                    </div>
+                    {% endif %}
                 </div>
-            {% endif %}
+            </div>
             <div class="col-xs-12 col-md-6">
                 <div class="panel panel-default">
                     <div class="panel-heading">microlight.js</div>

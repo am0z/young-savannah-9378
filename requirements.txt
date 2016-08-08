@@ -11,4 +11,4 @@ opbeat
 selenium
 django-redis
 humanhash
-panavatar
+git+https://github.com/am0z/python-panavatar.git
