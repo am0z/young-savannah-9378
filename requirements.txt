@@ -12,3 +12,6 @@ selenium
 django-redis
 humanhash
 git+https://github.com/am0z/python-panavatar.git
+pillow
+sorl-thumbnail
+django-s3-storage

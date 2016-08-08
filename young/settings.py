@@ -38,9 +38,12 @@ INSTALLED_APPS = (
     'crispy_forms',
     'opbeat.contrib.django',
     'panavatar',
+    'sorl.thumbnail',
+    'django_s3_storage',
     'young',
     'youngsters',
     'contact',
+    'photo',
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (
@@ -97,6 +100,13 @@ USE_L10N = True
 USE_TZ = True
 
 STATIC_URL = '/static/'
+
+DEFAULT_FILE_STORAGE = 'django_s3_storage.storage.S3Storage'
+AWS_REGION = 'eu-central-1'
+AWS_ACCESS_KEY_ID = env('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = env('AWS_SECRET_ACCESS_KEY')
+AWS_S3_BUCKET_NAME = 'young-savannah-9378'
+AWS_S3_MAX_AGE_SECONDS = 604799
 
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
 

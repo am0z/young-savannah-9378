@@ -56,10 +56,12 @@
                 </div>
             </div>
         </div>
-        {% block content %}
-            <a href="{% url 'youngsters:login' %}" class="btn btn-default">Login</a>
-            <a href="{% url 'contact:form' %}" class="btn btn-default">Contact form</a>
-        {% endblock %}
+        <div class="row">
+            {% block content %}
+                <a href="{% url 'youngsters:login' %}" class="btn btn-default">Login</a>
+                <a href="{% url 'contact:form' %}" class="btn btn-default">Contact form</a>
+            {% endblock %}
+        </div>
     </div>
 
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>

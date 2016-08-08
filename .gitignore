@@ -1,5 +1,8 @@
+bin/
+lib/
+include/
 *.pyc
-db.sqlite3
+db.sqlite
 pip-selfcheck.json
 staticfiles/
 .env

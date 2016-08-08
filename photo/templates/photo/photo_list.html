@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load thumbnail %}
+
+{% block content %}
+    {% for photo in object_list %}
+        <div class="col-md-4 col-xs-6">
+            <div class="thumbnail">
+                <img src="{% thumbnail photo.image '1920' as img %}{{ img.url }}{% endthumbnail %}"
+                     srcset="
+                         {% thumbnail photo.image '768' as img %}{{ img.url }} {{ img.x }}w{% endthumbnail %},
+                         {% thumbnail photo.image '992' as img %}{{ img.url }} {{ img.x }}w{% endthumbnail %},
+                         {% thumbnail photo.image '1200' as img %}{{ img.url }} {{ img.x }}w{% endthumbnail %},
+                         {% thumbnail photo.image '1920' as img %}{{ img.url }} {{ img.x }}w{% endthumbnail %},
+                     "
+                     sizes="100wv"
+                >
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}
