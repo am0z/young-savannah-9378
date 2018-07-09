@@ -12,6 +12,6 @@ selenium==3.13.0
 django-redis==4.9.0
 humanhash==0.0.1
 git+https://github.com/am0z/python-panavatar.git
-pillow
+pillow==5.2.0
 sorl-thumbnail
 django-s3-storage
