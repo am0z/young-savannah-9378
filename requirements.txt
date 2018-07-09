@@ -3,7 +3,7 @@ django-environ==0.4.5
 gunicorn==19.8.1
 psycopg2==2.7.5
 django-crispy-forms==1.7.2
-cffi
+cffi==1.11.5
 brotlipy
 whitenoise
 rollbar
