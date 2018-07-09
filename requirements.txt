@@ -10,7 +10,7 @@ rollbar==0.14.1
 opbeat==3.6.1
 selenium==3.13.0
 django-redis==4.9.0
-humanhash
+humanhash==0.0.1
 git+https://github.com/am0z/python-panavatar.git
 pillow
 sorl-thumbnail
