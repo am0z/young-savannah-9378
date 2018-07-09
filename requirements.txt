@@ -4,7 +4,7 @@ gunicorn==19.8.1
 psycopg2==2.7.5
 django-crispy-forms==1.7.2
 cffi==1.11.5
-brotlipy
+brotlipy==0.7.0
 whitenoise
 rollbar
 opbeat
