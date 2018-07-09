@@ -14,4 +14,4 @@ humanhash==0.0.1
 git+https://github.com/am0z/python-panavatar.git
 pillow==5.2.0
 sorl-thumbnail==12.4.1
-django-s3-storage
+django-s3-storage==0.12.4
